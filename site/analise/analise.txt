@@ -1,0 +1,82 @@
+**************************************  Análise   ***********************************************
+************************************** Requisitos ***********************************************
+
+
+Referente aos cadastros 
+
+             ****Usuários*******
+
+
+campos: id,nome, email, senha,dataCadastro,
+** falta adicionar os campos (cpf),(dataNascimento),(telefone)**
+Observacao não pode haver cadastros repetidos cpf(unique)
+
+
+               ****Evento****
+
+campos: id,nome, descricao, dataevento, horario, status, vagas disponiveis
+Observação não pode haver cadastros repetidos nome(unique)
+
+
+
+
+              ****Inscrição****
+              
+Referente a inscrição 
+campos: id, usuario, evento,termos
+Observação:
+usuário não pode haver usuario inscrito em eventos que coincidam horarios 
+usuário não pode se inscrever em um mesmo evento mais de uma vez           
+o campo termos mensiona se ele concordou e está ciente com os termos lidos no ato da inscrição. s ou n
+
+***************************************** Tabelas ************************************************
+
+create table usuario(
+id integer not null auto_increment primary key,
+nome varchar(100),
+email varchar(300),
+senha varchar(150),
+dataCadastro datetime,
+cpf varchar(20) unique,
+nascimetno date,
+telefone varchar(20));
+
+
+create table evento(
+id integer not null auto_increment primary key,
+nome varchar(50),
+descricao varchar(100),
+dataevento Date,
+horario varchar(10),
+vagas integer,
+status char(1));
+
+create table inscricao(
+id integer not null auto_increment primary key,
+usuario integer not null,
+evento integer not null,
+termos char(1),
+constraint inscricao_usuario_fk foreign key (usuario) references usuario(id), 
+constraint inscricao_evento_fk foreign key (evento) references evento(id));
+
+
+************* teste upload ***************
+
+alter table usuario add column url_foto varchar(230);
+alter table usuario drop column url_foto;
+
+
+create table arquivo(
+id integer not null auto_increment primary key,
+arquivo varchar(230),
+data date);
+
+
+
+faltou
+
+
+** ver como alterar data ****
+**incluir cpf,nascimento, telefone para usuario
+
+

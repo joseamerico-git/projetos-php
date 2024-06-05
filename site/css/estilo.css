@@ -1,0 +1,24 @@
+body{
+	
+	bacground-color:black;
+}
+
+
+.img-card{
+	
+	whidth-max:100%;
+	whidth:200px;
+	height:200px;
+	object-fit:cover;
+}
+
+.img-cabecalho{
+	whidth-max:100%;
+	object-fit:contain;
+   object-fit:cover;
+	
+}
+
+.pos-card{
+	margin:auto;
+}
